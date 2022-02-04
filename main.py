@@ -10,15 +10,18 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report, confusion_matrix
 
+
 # chamar apenas uma vez:
 # nltk.download()
 
 def text_pre_processing(text):
     nopunc = [char for char in text if char not in string.punctuation]
     nopunc = ''.join(nopunc)
-    cleanWords = [word for word in nopunc.split() if word.lower() not in stopwords.words('english')] # change to portuguese later
+    cleanWords = [word for word in nopunc.split() if
+                  word.lower() not in stopwords.words('english')]  # change to portuguese later
 
     return cleanWords
+
 
 messages = pd.read_csv('data/spam.csv', encoding='latin-1')
 
@@ -43,3 +46,4 @@ pipeline.fit(msg_train, class_train)
 predictions = pipeline.predict(msg_test)
 
 print(classification_report(class_test, predictions))
+print(confusion_matrix(class_test, predictions))

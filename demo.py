@@ -17,6 +17,7 @@ prior_probability_spam = 8 / (8 + 8)
 
 example_email = ['relatório', 'reunião']
 
+
 def calculate_proportional_probabilities(message):
     proportional_probability_ham = prior_probability_ham
     for word in message:
@@ -36,10 +37,11 @@ def print_analise(message):
 
     print('Probabilidade de ser spam dado a mensagem é proporcional a: ')
     print(proportional_probability_spam)
-    if(proportional_probability_ham > proportional_probability_spam):
+    if proportional_probability_ham > proportional_probability_spam:
         print('Provavelmente não é spam!')
     else:
         print('Provavelmente é spam!')
+
 
 print_analise(example_email)
 
@@ -49,9 +51,9 @@ print_analise(example_email)
 
 # somar 1 nas frequencias
 for word in ham_freq:
-    ham_freq.update({word: ham_freq.get(word)+1})
+    ham_freq.update({word: ham_freq.get(word) + 1})
 
 for word in spam_freq:
-    spam_freq.update({word: spam_freq.get(word)+1})
+    spam_freq.update({word: spam_freq.get(word) + 1})
 print_analise(['relatório', 'reunião'])
 print_analise(example_email)
