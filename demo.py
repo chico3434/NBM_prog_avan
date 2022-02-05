@@ -5,12 +5,12 @@ spam_freq = {'relatório': 1, 'reunião': 1, 'promoção': 8, 'desconto': 5}
 print('Probabilidades condicionais de não spams')
 for word in ham_freq:
     p = ham_freq.get(word) / sum(ham_freq.values())
-    print('P(H|{})={}'.format(word, p))
+    print('P({}|H)={}'.format(word, p))
 
 print('Probabilidades condicionais de spams')
 for word in spam_freq:
     p = spam_freq.get(word) / sum(spam_freq.values())
-    print('P(S|{})={}'.format(word, p))
+    print('P({}|S)={}'.format(word, p))
 
 prior_probability_ham = 8 / (8 + 8)
 prior_probability_spam = 8 / (8 + 8)
