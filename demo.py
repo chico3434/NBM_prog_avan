@@ -15,8 +15,6 @@ for word in spam_freq:
 prior_probability_ham = 8 / (8 + 8)
 prior_probability_spam = 8 / (8 + 8)
 
-example_email = ['relatório', 'reunião']
-
 
 def calculate_proportional_probabilities(message):
     proportional_probability_ham = prior_probability_ham
@@ -43,6 +41,7 @@ def print_analise(message):
         print('Provavelmente é spam!')
 
 
+example_email = ['relatório', 'reunião']
 print_analise(example_email)
 
 # Probabilidade de 0 em ham por causa de desconto
